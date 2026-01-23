@@ -8,6 +8,21 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(express.json({ limit: '1mb' }));
 
+const canonicalHost = process.env.CANONICAL_HOST || 'dispulse.co';
+app.use((req, res, next) => {
+  const host = req.hostname;
+  if (!host) {
+    return next();
+  }
+
+  const isLocalhost = host === 'localhost' || host === '127.0.0.1';
+  if (!isLocalhost && host !== canonicalHost) {
+    return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
+  }
+
+  return next();
+});
+
 const dataDir = path.join(__dirname, '..', 'data');
 fs.mkdirSync(dataDir, { recursive: true });
 const dbPath = path.join(dataDir, 'app.db');
