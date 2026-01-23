@@ -295,7 +295,7 @@ const Services = () => {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div style={styles.body}>
+    <div style={styles.body} className="page-content">
       <style>{`
         @keyframes slideIn {
           from {
@@ -397,14 +397,14 @@ const Services = () => {
         <div style={styles.header}>
           <div style={styles.badge}>
             <span style={styles.badgeIcon}></span>
-            Our Services
+            <span data-editable="services-badge">Our Services</span>
           </div>
           <h1 style={styles.h1}>
-            Services built
+            <span data-editable="services-title-main">Services built</span>
             <br />
-            <span style={styles.highlight}>for brands that want to lead</span>
+            <span style={styles.highlight} data-editable="services-title-highlight">for brands that want to lead</span>
           </h1>
-          <p style={styles.subtitle}>
+          <p style={styles.subtitle} data-editable="services-subtitle">
             Strategy, production, and partnership support designed to create durable growth in esports and beyond.
           </p>
         </div>
@@ -421,18 +421,20 @@ const Services = () => {
               onMouseLeave={() => setHoveredCard(null)}
             >
               <div style={styles.cardIcon}>{card.icon}</div>
-              <h3 style={styles.cardH3}>{card.title}</h3>
-              <p style={styles.cardP}>{card.description}</p>
+              <h3 style={styles.cardH3} data-editable={`services-card-title-${index}`}>{card.title}</h3>
+              <p style={styles.cardP} data-editable={`services-card-description-${index}`}>{card.description}</p>
             </div>
           ))}
         </div>
 
         <div style={styles.formContainer}>
-          <h2 style={styles.formH2}>Schedule & Email</h2>
+          <h2 style={styles.formH2} data-editable="services-form-title">Schedule & Email</h2>
           
           <form onSubmit={handleSubmit}>
             <div style={styles.formGroup}>
-              <label htmlFor="email" style={styles.label}>Email Address</label>
+              <label htmlFor="email" style={styles.label}>
+                <span data-editable="services-form-email-label">Email Address</span>
+              </label>
               <input
                 type="email"
                 id="email"
@@ -452,7 +454,9 @@ const Services = () => {
             </div>
 
             <div style={styles.formGroup}>
-              <label style={styles.label}>Select Date</label>
+              <label style={styles.label}>
+                <span data-editable="services-form-date-label">Select Date</span>
+              </label>
               <div style={styles.datePickerContainer}>
                 <DatePicker
                   selected={date ? new Date(date) : null}
@@ -488,11 +492,11 @@ const Services = () => {
             </button>
           </form>
 
-          <div style={styles.successMsg}>
+          <div style={styles.successMsg} data-editable="services-form-success">
             Email sent successfully! Check your inbox.
           </div>
 
-          <div style={styles.errorMsg}>
+          <div style={styles.errorMsg} data-editable="services-form-error">
             Please fill in all fields correctly.
           </div>
         </div>

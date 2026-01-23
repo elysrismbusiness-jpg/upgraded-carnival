@@ -64,40 +64,40 @@ function Contact() {
   return (
     <div className="page-content">
       <div className="contact-hero">
-        <h1 className="contact-title">Get in Touch</h1>
-        <p className="contact-subtitle">Ready to grow your social media presence? Let's talk about your goals.</p>
+        <h1 className="contact-title" data-editable="contact-title">Get in Touch</h1>
+        <p className="contact-subtitle" data-editable="contact-subtitle">Ready to grow your social media presence? Let's talk about your goals.</p>
       </div>
 
       <div className="contact-container">
         <div className="contact-info">
           <div className="info-card">
-            <div className="info-icon">✉</div>
-            <h3>Email Us</h3>
-            <p>contact@dispulse.co</p>
+            <div className="info-icon">@</div>
+            <h3 data-editable="contact-info-email-title">Email Us</h3>
+            <p data-editable="contact-info-email-value">contact@dispulse.co</p>
           </div>
 
           <div className="info-card">
-            <div className="info-icon">📞</div>
-            <h3>DM Us on X</h3>
+            <div className="info-icon">DM</div>
+            <h3 data-editable="contact-info-dm-title">DM Us on X</h3>
             <p>
               <a href="https://x.com/dispulse" className="social-icon">
-                x.com/dispulse
+                <span data-editable="contact-info-dm-link">x.com/dispulse</span>
               </a>
             </p>
           </div>
 
           <div className="info-card">
-            <div className="info-icon">⏰</div>
-            <h3>Business Hours</h3>
-            <p>Mon - Fri: 8am - 6pm UK Time (Corporate clients)</p>
+            <div className="info-icon">HRS</div>
+            <h3 data-editable="contact-info-hours-title">Business Hours</h3>
+            <p data-editable="contact-info-hours-value">Mon - Fri: 8am - 6pm UK Time (Corporate clients)</p>
           </div>
 
           <div className="social-links">
-            <h3>Follow Us</h3>
+            <h3 data-editable="contact-social-title">Follow Us</h3>
             <div className="social-icons">
-              <a href="https://x.com/dispulse" className="social-icon">X</a>
-              <a href="https://www.tiktok.com/@dispulse" className="social-icon">TikTok</a>
-              <a href="https://www.linkedin.com/company/dispulse" className="social-icon">LinkedIn</a>
+              <a href="https://x.com/dispulse" className="social-icon" data-editable="contact-social-x">X</a>
+              <a href="https://www.tiktok.com/@dispulse" className="social-icon" data-editable="contact-social-tiktok">TikTok</a>
+              <a href="https://www.linkedin.com/company/dispulse" className="social-icon" data-editable="contact-social-linkedin">LinkedIn</a>
             </div>
           </div>
         </div>
@@ -105,17 +105,19 @@ function Contact() {
         <form className="contact-form" onSubmit={handleSubmit}>
           {submitted && (
             <div className="success-message">
-              Thank you! We'll get back to you within 24 hours.
+              <span data-editable="contact-success">Thank you! We'll get back to you within 24 hours.</span>
             </div>
           )}
           {errorMessage && (
             <div className="error-message">
-              Something went wrong. Please try again.
+              <span data-editable="contact-error">Something went wrong. Please try again.</span>
             </div>
           )}
 
           <div className="form-group">
-            <label htmlFor="name">Full Name *</label>
+            <label htmlFor="name">
+              <span data-editable="contact-form-name-label">Full Name *</span>
+            </label>
             <input
               type="text"
               id="name"
@@ -128,7 +130,9 @@ function Contact() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email Address *</label>
+            <label htmlFor="email">
+              <span data-editable="contact-form-email-label">Email Address *</span>
+            </label>
             <input
               type="email"
               id="email"
@@ -141,7 +145,9 @@ function Contact() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="company">Company Name</label>
+            <label htmlFor="company">
+              <span data-editable="contact-form-company-label">Company Name</span>
+            </label>
             <input
               type="text"
               id="company"
@@ -153,7 +159,9 @@ function Contact() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="service">Service Interested In *</label>
+            <label htmlFor="service">
+              <span data-editable="contact-form-service-label">Service Interested In *</span>
+            </label>
             <select
               id="service"
               name="service"
@@ -170,7 +178,9 @@ function Contact() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="message">Tell us about your project *</label>
+            <label htmlFor="message">
+              <span data-editable="contact-form-message-label">Tell us about your project *</span>
+            </label>
             <textarea
               id="message"
               name="message"

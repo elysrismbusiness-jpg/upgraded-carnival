@@ -16,7 +16,7 @@ function Work() {
     {
       client: "Fruity INC",
       category:
-        "Services: Content Development · Brand Outreach & Partnerships · Business Operations",
+        "Services: Content Development | Brand Outreach & Partnerships | Business Operations",
       description:
         "FruityINC came to us during a key growth phase, looking to transition from a creator-led project into a structured, pitch-ready business. Our role was to help professionalise both the brands outward presence and its internal operations.",
       results: [
@@ -57,8 +57,8 @@ function Work() {
   return (
     <div className="page-content">
       <div className="work-hero">
-        <h1 className="work-title">Our Work</h1>
-        <p className="work-subtitle">
+        <h1 className="work-title" data-editable="work-title">Our Work</h1>
+        <p className="work-subtitle" data-editable="work-subtitle">
           Real results for real clients. See how we've helped brands grow their
           social presence.
         </p>
@@ -74,19 +74,19 @@ function Work() {
                 className="work-image"
               />
               <div className="work-overlay">
-                <span className="work-category">{project.category}</span>
+                <span className="work-category" data-editable={`work-category-${index}`}>{project.category}</span>
               </div>
             </div>
 
             <div className="work-content">
-              <h3 className="work-client">{project.client}</h3>
-              <p className="work-description">{project.description}</p>
+              <h3 className="work-client" data-editable={`work-client-${index}`}>{project.client}</h3>
+              <p className="work-description" data-editable={`work-description-${index}`}>{project.description}</p>
 
               <div className="work-results">
-                <h4 className="results-title">Results:</h4>
+                <h4 className="results-title" data-editable={`work-results-title-${index}`}>Results:</h4>
                 <ul className="results-list">
                   {project.results.map((result, idx) => (
-                    <li key={idx}>{result}</li>
+                    <li key={idx} data-editable={`work-result-${index}-${idx}`}>{result}</li>
                   ))}
                 </ul>
               </div>

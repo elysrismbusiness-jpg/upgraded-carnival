@@ -37,7 +37,7 @@ export default class AppErrorBoundary extends React.Component<{ children: React.
         >
           <div style={{ textAlign: 'center', maxWidth: 720 }}>
             <h1>Something went wrong</h1>
-            <p>Sorry — something crashed. You can try to reload or go back.</p>
+            <p>Sorry - something crashed. You can try to reload or go back.</p>
             <div style={{ marginTop: 12 }}>
               <button onClick={this.reset}>Try again</button>
               <button style={{ marginLeft: 8 }} onClick={() => window.location.reload()}>

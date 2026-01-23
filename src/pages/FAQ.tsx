@@ -53,8 +53,8 @@ function FAQ() {
   return (
     <div className="page-content">
       <div className="faq-hero">
-        <h1 className="faq-title">Frequently Asked Questions</h1>
-        <p className="faq-subtitle">Everything you need to know about our process and services</p>
+        <h1 className="faq-title" data-editable="faq-title">Frequently Asked Questions</h1>
+        <p className="faq-subtitle" data-editable="faq-subtitle">Everything you need to know about our process and services</p>
       </div>
 
       <div className="faq-container">
@@ -64,12 +64,12 @@ function FAQ() {
               className="faq-question"
               onClick={() => toggleFAQ(index)}
             >
-              <span>{faq.question}</span>
-              <span className="faq-icon">{openIndex === index ? '−' : '+'}</span>
+              <span data-editable={`faq-question-${index}`}>{faq.question}</span>
+              <span className="faq-icon">{openIndex === index ? '-' : '+'}</span>
             </button>
             {openIndex === index && (
               <div className="faq-answer">
-                <p>{faq.answer}</p>
+                <p data-editable={`faq-answer-${index}`}>{faq.answer}</p>
               </div>
             )}
           </div>
@@ -77,8 +77,8 @@ function FAQ() {
       </div>
 
       <div className="faq-cta">
-        <h2>Still have questions?</h2>
-        <p>We're here to help! Reach out to us anytime.</p>
+        <h2 data-editable="faq-cta-title">Still have questions?</h2>
+        <p data-editable="faq-cta-subtitle">We're here to help! Reach out to us anytime.</p>
       </div>
     </div>
   );
