@@ -14,6 +14,7 @@ function App() {
   const [contentEntries, setContentEntries] = useState<Record<string, string>>({});
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
   const isAdminRoute = window.location.pathname.startsWith('/admin');
+  const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -150,7 +151,7 @@ function App() {
             <div className="navbar-container navbar-glow">
               <div className="navbar-brand">
                 <div className="navbar-logo" onClick={() => handleNavClick('hero')}>
-                  <img src={new URL('/logo.png', import.meta.url).href} alt="Dispulse" className="logo-image" />
+                  <img src={logoUrl} alt="Dispulse" className="logo-image" />
                   <span className="logo-text" data-editable="brand-logo-text">Dispulse</span>
                 </div>
                 <button
@@ -242,10 +243,7 @@ function App() {
               <div className="footer-shell">
                 <div className="footer-brand">
                   <div className="footer-mark">
-                    <img
-                      src={new URL('/logo.png', import.meta.url).href}
-                      alt="Dispulse"
-                    />
+                    <img src={logoUrl} alt="Dispulse" />
                   </div>
                   <div>
                     <h3 data-editable="footer-brand-title">Dispulse</h3>
